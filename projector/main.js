@@ -3,7 +3,7 @@ const imagesAndCoord = [
     {canvasName: 'canvas_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]},
     {canvasName: 'canvas_3', coords: [[304, 134], [549, 147], [550, 567], [312, 578]]}
 ];
-const PERSONAL_ACCESS_TOKEN = '<INSERT YOUR PERSONAL ACCESS TOKEN>';
+const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
 
 function getFileKey(pageUrl) {
     const parser = document.createElement('a');
