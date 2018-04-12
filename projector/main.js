@@ -55,6 +55,7 @@ function addImageToCanvas(imageUrl) {
 }
 
 
+// The function that runs when form is submitted. 
 function callFigmaAndDrawMockups() {
     startProgress();
 
