@@ -6,6 +6,7 @@ const imagesAndCoord = [
 ];
 
 // Access Token
+//const PERSONAL_ACCESS_TOKEN = document.getElementById('token_input').value;
 const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
 
 //Creating link with URL from user
@@ -71,3 +72,24 @@ function callFigmaAndDrawMockups() {
            addImageToCanvas(apiResponse.images[nodeId]);
         });
 }
+
+
+const selectedOs = document.getElementById('os_input');
+
+function selectOs(){
+    console.log(selectedOs.value);
+
+    if (selectedOs.value == 'apple'){
+        document.getElementById('apple_devices').classList.remove('hidden');
+        document.getElementById('android_devices').classList.add('hidden');
+    }
+
+    if (selectedOs.value == 'android'){
+        document.getElementById('android_devices').classList.remove('hidden');
+        document.getElementById('apple_devices').classList.add('hidden');
+    }
+
+
+}
+
+

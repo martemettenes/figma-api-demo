@@ -9,6 +9,10 @@ body {
     font-family: sans-serif;
 }
 
+.hidden {
+    display: none;
+}
+
 .form-box {
     width: 100vw;
     padding-left: 10%;
@@ -17,6 +21,11 @@ body {
     border: 1px solid black;
 }
 
+select {
+    width: 100px;
+    height: 20px;
+    padding: 5%;
+}
 
 
 .row {
@@ -35,6 +44,7 @@ body {
 #progress {
     border-bottom: 1px solid black;
     visibility: hidden;
+    position: fixed;
 }
 
 #progress_inner {
@@ -48,9 +58,7 @@ body {
 }
 
 input {
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
     border-bottom: 2px solid #dedede;
     min-width: 500px;
     text-align: center;
@@ -58,7 +66,7 @@ input {
 }
 
 .input {
-    margin: 60px 0 20px;
+    margin: 40px 0 20px;
 }
 
 .submit {

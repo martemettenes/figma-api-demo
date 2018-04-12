@@ -15,25 +15,46 @@
 
 <div class="form-box">
         <h2> Mockup Generator</h2>
-<form action="javascript:callFigmaAndDrawMockups()">
-    <select class="input" id="os">
-                <option value="Android" type="text">Android</option>
-                <option value="Apple" type="text">Apple</option>
-                <option value="Linux" type="text">Linux</option>
-    </select>
-    <div class="input" id="device">
-            <input value="samsung" type="checkbox">samsung</input>
-            <input value="htc" type="checkbox">htc</input>
-            <input value="pc" type="checkbox">pc</input>
+
+<form id="select_os" action="javascript:selectOs()">
+        <select id="os_input" class="input">
+                <option value="android"> Android </option>
+                <option value="apple"> Apple </option>
+                <option value="tv"> TV </option>
+        </select>
+        <button class="submit"> Select </button>
+</form>
+
+    <form action="javascript:callFigmaAndDrawMockups()">
+            <div class="input">
+                    <input id='token_input' placeholder="Enter your personal access token" type="text">
+            </div>
+
+    <h3>Insert Figma links for each device</h3>
+
+    <div class="input hidden" id="android_devices">
+        <h4> Android Devices</h4>
+            <input placeholder="Samsung Galaxy S9+" type="text"></input>
+            <input placeholder="HTC Desire 530" type="text"></input>
+            <input placeholder="LG Q6" type="text"></input>
+            <input placeholder="Samsung Tablet" type="text"></input>
     </div>
-    <div class="input">
-            <input id='token_input' placeholder="Enter your personal access token" type="text">
+
+    <div class="input hidden" id="apple_devices">
+            <h4> Apple Devices</h4>
+            <input placeholder="iPhone 8" type="text"></input>
+            <input placeholder="iPhone X" type="text"></input>
+            <input placeholder="iPad Pro" type="text"></input>
+            <input placeholder="Macbook Pro" type="text"></input>
+            <input placeholder="iMac" type="text"></input>
     </div>
+
+
     <div class="input">
         <input id='url_input' placeholder="Enter Figma URL" type="text">
     </div>
     <button class="submit">Render</button>
-</form>
+    </form>
 </div>
 
 
@@ -62,7 +83,7 @@
 </div>
 
 
-<script src="script.js"></script>
+<script src="progresstimer.js"></script>
 <script src="main.js"></script>
 <script src="perspective.js"></script>
 </body>
