@@ -6,7 +6,18 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
+
+.form-box {
+    width: 100vw;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: auto;
+    border: 1px solid black;
+}
+
+
 
 .row {
     position: relative;
@@ -30,7 +41,6 @@ body {
     background-color: black;
     -webkit-transition: width 1s;
     color: white;
-    font-family: Apercu;
     font-size: 14px;
     width: 60px;
     text-align: left;
@@ -42,9 +52,8 @@ input {
     border-left: none;
     border-right: none;
     border-bottom: 2px solid #dedede;
-    width: 800px;
+    min-width: 500px;
     text-align: center;
-    font-family: Apercu;
     font-size: 18px;
 }
 
@@ -53,7 +62,6 @@ input {
 }
 
 .submit {
-    font-family: Apercu;
     font-size: 16px;
     padding: 5px 20px 8px;
     color: white;

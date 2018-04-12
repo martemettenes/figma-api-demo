@@ -11,12 +11,32 @@
     <div id="progress_inner">Rendering</div>
 </div>
 
+
+
+<div class="form-box">
+        <h2> Mockup Generator</h2>
 <form action="javascript:callFigmaAndDrawMockups()">
+    <select class="input" id="os">
+                <option value="Android" type="text">Android</option>
+                <option value="Apple" type="text">Apple</option>
+                <option value="Linux" type="text">Linux</option>
+    </select>
+    <div class="input" id="device">
+            <input value="samsung" type="checkbox">samsung</input>
+            <input value="htc" type="checkbox">htc</input>
+            <input value="pc" type="checkbox">pc</input>
+    </div>
+    <div class="input">
+            <input id='token_input' placeholder="Enter your personal access token" type="text">
+    </div>
     <div class="input">
         <input id='url_input' placeholder="Enter Figma URL" type="text">
     </div>
     <button class="submit">Render</button>
 </form>
+</div>
+
+
 
 <div class="row">
     <div class="parent">
