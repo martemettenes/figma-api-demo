@@ -75,18 +75,20 @@ function callFigmaAndDrawMockups() {
 
 
 const selectedOs = document.getElementById('os_input');
+const android = document.getElementById('android_devices');
+const apple = document.getElementById('apple_devices');
 
 function selectOs(){
     console.log(selectedOs.value);
 
     if (selectedOs.value == 'apple'){
-        document.getElementById('apple_devices').classList.remove('hidden');
-        document.getElementById('android_devices').classList.add('hidden');
+        apple.classList.remove('hidden');
+        android.classList.add('hidden');
     }
 
     if (selectedOs.value == 'android'){
-        document.getElementById('android_devices').classList.remove('hidden');
-        document.getElementById('apple_devices').classList.add('hidden');
+        android.classList.remove('hidden');
+        apple.classList.add('hidden');
     }
 
 

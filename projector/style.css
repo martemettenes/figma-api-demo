@@ -21,11 +21,7 @@ body {
     border: 1px solid black;
 }
 
-select {
-    width: 100px;
-    height: 20px;
-    padding: 5%;
-}
+
 
 
 .row {
@@ -67,6 +63,14 @@ input {
 
 .input {
     margin: 40px 0 20px;
+}
+
+select {
+    width: 100px;
+    height: 20px;
+    padding: 5%;
+    margin-left: 500px;
+    margin-right: 500px;
 }
 
 .submit {
