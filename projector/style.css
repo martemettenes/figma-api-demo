@@ -45,7 +45,7 @@ body {
 
 #progress_inner {
     background-color: black;
-    -webkit-transition: width 1s;
+    /* -webkit-transition: width 1s; */
     color: white;
     font-size: 14px;
     width: 60px;
