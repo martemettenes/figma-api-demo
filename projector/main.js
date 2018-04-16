@@ -73,11 +73,13 @@ function callFigmaAndDrawMockups() {
         .then(function (apiResponse) {
             // Adding Figma Frame to Canvas
            addImageToCanvas(apiResponse.images[nodeId]);
+           // Images is visible when the frame is added to canvas
+           visibleImages(); 
         });
 }
 
 
-// Form
+// Form Styling and Functions
 
 const android = document.getElementById('android');
 const apple = document.getElementById('apple');
@@ -89,13 +91,19 @@ const androidDevices = document.getElementById('android_devices');
 const devices = [appleDevices, androidDevices];
 
 apple.addEventListener("mousedown", function(){ 
-console.log(devices[0], devices[1]);
-appleDevices.classList.remove('hidden');
+    console.log(devices[0], devices[1]);
+    appleDevices.classList.remove('hidden');
+    androidDevices.classList.add('hidden');
 });
 
 android.addEventListener("mousedown", function(){ 
     console.log(devices[0], devices[1]);
     androidDevices.classList.remove('hidden');
+    appleDevices.classList.add('hidden');
     });
-    
+   
+
+function visibleImages(){
+    document.getElementById('mockups').classList.remove('hidden');
+}
 
