@@ -19,7 +19,6 @@ function getFileKey(pageUrl) {
     return parser.pathname.replace('/file/', '').replace(/\/.*/,'');
 }
 
-
 // Get Figma Frame node-ID
 function getNodeId(pageUrl) {
     const parser = document.createElement('a');
@@ -76,8 +75,6 @@ function callFigmaAndDrawMockups() {
            addImageToCanvas(apiResponse.images[nodeId]);
         });
 }
-
-
 
 
 // Form
