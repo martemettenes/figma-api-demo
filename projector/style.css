@@ -6,7 +6,8 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Nationale-Regular", sans-serif;
+    src: url("./font/Nationale-Regular.otf");
 }
 
 .hidden {
@@ -21,7 +22,10 @@ body {
     border: 1px solid black;
 }
 
-
+form {
+    margin-top: 30px;
+    margin-bottom:30px;
+}
 
 
 .row {
@@ -108,4 +112,18 @@ img, canvas {
 
 #row3 {
     margin-bottom: 100px;
+}
+
+/* DEVICE BUTTONS TOP MENU */
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px;
+    border-top: 1px solid black;
+    padding-top: 20px;
+}
+
+.devicebtn {
+    text-align: center;
 }

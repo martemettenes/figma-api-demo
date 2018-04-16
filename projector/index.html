@@ -16,21 +16,21 @@
 <div class="form-box">
         <h2> Mockup Generator</h2>
 
-<form id="select_os" action="javascript:selectOs()">
-        <select id="os_input" class="input">
-                <option value="android"> Android </option>
-                <option value="apple"> Apple </option>
-                <option value="tv"> TV </option>
-        </select>
-        <button class="submit"> Select </button>
-</form>
-
     <form action="javascript:callFigmaAndDrawMockups()">
             <div class="input">
                     <input id='token_input' placeholder="Enter your personal access token" type="text">
             </div>
+            <button class="submit-token"> Submit Token </button>
+    </form>
 
-    <h3>Insert Figma links for each device</h3>
+<form>
+    <div class="menu">
+        <div id="apple" class="devicebtn">Apple</div>
+        <div id="android" class="devicebtn">Android</div>
+        <div id="tv" class="devicebtn">TVs</div>
+        <div id="artist" class="devicebtn">Artist</div>
+        <div id="album" class="devicebtn">Album</div>
+    </div>
 
     <div class="input hidden" id="android_devices">
         <h4> Android Devices</h4>
@@ -54,11 +54,11 @@
         <input id='url_input' placeholder="Enter Figma URL" type="text">
     </div>
     <button class="submit">Render</button>
-    </form>
+</form>
 </div>
 
 
-
+<section id="mockups" class="hidden">
 <div class="row">
     <div class="parent">
         <img class="template base_image" src="images/_bottom.png" />
@@ -81,6 +81,7 @@
         <img class="reflection" src="images/reflection.png" />
     </div>
 </div>
+</section>
 
 
 <script src="progresstimer.js"></script>

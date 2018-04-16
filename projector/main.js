@@ -6,8 +6,11 @@ const imagesAndCoord = [
 ];
 
 // Access Token
-//const PERSONAL_ACCESS_TOKEN = document.getElementById('token_input').value;
-const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
+getPersonalAccessToken = function() {
+    const val = document.getElementById('token_input').value;
+    return val !== "" ? val : '576-3d868804-071a-4d20-a8aa-852d127e3e93';
+}
+//const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
 
 //Creating link with URL from user
 function getFileKey(pageUrl) {
@@ -26,6 +29,7 @@ function getNodeId(pageUrl) {
 
 // Figma API
 function apiRequest(endpoint) {
+    const PERSONAL_ACCESS_TOKEN = getPersonalAccessToken();
     return fetch('https://api.figma.com/v1' + endpoint, {
         method: 'GET',
         headers: { "x-figma-token": PERSONAL_ACCESS_TOKEN }
@@ -74,24 +78,27 @@ function callFigmaAndDrawMockups() {
 }
 
 
-const selectedOs = document.getElementById('os_input');
-const android = document.getElementById('android_devices');
-const apple = document.getElementById('apple_devices');
-
-function selectOs(){
-    console.log(selectedOs.value);
-
-    if (selectedOs.value == 'apple'){
-        apple.classList.remove('hidden');
-        android.classList.add('hidden');
-    }
-
-    if (selectedOs.value == 'android'){
-        android.classList.remove('hidden');
-        apple.classList.add('hidden');
-    }
 
 
-}
+// Form
 
+const android = document.getElementById('android');
+const apple = document.getElementById('apple');
+const tv = document.getElementById('tv');
+
+const appleDevices = document.getElementById('apple_devices');
+const androidDevices = document.getElementById('android_devices');
+
+const devices = [appleDevices, androidDevices];
+
+apple.addEventListener("mousedown", function(){ 
+console.log(devices[0], devices[1]);
+appleDevices.classList.remove('hidden');
+});
+
+android.addEventListener("mousedown", function(){ 
+    console.log(devices[0], devices[1]);
+    androidDevices.classList.remove('hidden');
+    });
+    
 
