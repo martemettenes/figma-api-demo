@@ -13,8 +13,9 @@ body {
     font-size: 10pt;
 }
 
-h2 {
+h1 {
     color: #06FFFF;
+    margin-bottom: 100px
 }
 
 .hidden {
@@ -26,7 +27,7 @@ h2 {
     padding-left: 10%;
     padding-right: 10%;
     height: auto;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 form {
@@ -49,15 +50,16 @@ form {
 }
 
 #progress {
-    border-bottom: 1px solid white;
+    /* border-bottom: 1px solid white; */
     visibility: hidden;
+    top: 0;
     position: fixed;
 }
 
 #progress_inner {
-    background-color: black;
+    background-color: white;
     /* -webkit-transition: width 1s; */
-    color: white;
+    color: black;
     font-size: 14px;
     width: 60px;
     text-align: left;
@@ -93,10 +95,9 @@ select {
 .submit {
     font-size: 16px;
     padding: 5px 20px 8px;
-    color: black;
-    background-color: white;
-    border: none;
-    border-radius: 3px;
+    color:#06FFFF;
+    border: 1px solid white;
+    background-color: inherit;
     margin-bottom: 60px;
 }
 
@@ -147,4 +148,12 @@ img, canvas {
     display: block;
     margin: 0 auto;
     margin-top: 50px;
+}
+
+.logo {
+    max-width: 60px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: block;
+    position: unset;
 }

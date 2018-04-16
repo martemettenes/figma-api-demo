@@ -12,9 +12,9 @@
 </div>
 
 
-
+<img class="logo" src="images/Logo-Tall.png" alt="Tidal Logo">
 <div class="form-box">
-        <h2> Mockup Generator</h2>
+        <h1> Mockup Generator</h1>
 
 <form action="javascript:callFigmaAndDrawMockups()">
 
@@ -64,13 +64,15 @@
         <img class="template base_image" src="images/_bottom.png" />
         <canvas id="canvas" width="1024" height="577"></canvas>
         <img class="template" src="images/_top.png" />
+        <div id="savebtn">Save image</div>
     </div>
 </div>
 
 <div class="row">
     <div class="parent">
-        <img class="template base_image" src="images/phone-in-hand.jpeg" />
+        <img id="phone-in-hand" class="template base_image" src="images/phone-in-hand.jpeg" />
         <canvas id="canvas_2" width="1024" height="577"></canvas>
+        
     </div>
 </div>
 
@@ -87,5 +89,6 @@
 <script src="progresstimer.js"></script>
 <script src="main.js"></script>
 <script src="perspective.js"></script>
+<script src="canvas2image.js"></script>
 </body>
 </html>
