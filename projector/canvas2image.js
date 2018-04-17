@@ -264,9 +264,19 @@ var Canvas2Image = function () {
 
 }();
 
+
+
+
+
 // Save canvas as image
 var saveBtn = document.getElementById('savebtn');
 saveBtn.addEventListener("mousedown", createImage);
+
+var saveBtnTwo = document.getElementById('savebtntwo');
+saveBtnTwo.addEventListener("mousedown", createImageTwo);
+
+var saveBtnThree = document.getElementById('savebtnthree');
+saveBtnThree.addEventListener("mousedown", createImageThree);
 
 function toImage(){
 	const data = localStorage.getItem("savedImageData");    
@@ -276,8 +286,35 @@ function toImage(){
     Canvas2Image.saveAsJPEG(data, image.width, image.height);
 }
 
+// Create Image 1
 function createImage() {
 	const image1 = document.getElementById("canvas1_1");
+
+	const data1 = image1.src;
+	const data2 = localStorage.getItem("savedImageData");
+	// Merging image and canvas to one image    
+	mergeImages([data1, data2])
+		.then(b64 => {
+			downloadURI(b64, "test.png");
+		});
+}
+
+// Create Image 2
+function createImageTwo() {
+	const image1 = document.getElementById("canvas2_1");
+
+	const data1 = image1.src;
+	const data2 = localStorage.getItem("savedImageData");
+	// Merging image and canvas to one image    
+	mergeImages([data1, data2])
+		.then(b64 => {
+			downloadURI(b64, "test.png");
+		});
+}
+
+// Create Image 3
+function createImageThree() {
+	const image1 = document.getElementById("canvas3_1");
 
 	const data1 = image1.src;
 	const data2 = localStorage.getItem("savedImageData");
@@ -299,6 +336,7 @@ function downloadURI(uri, name) {
 	var image = document.createElement("img");
 	image.src = uri
 	document.getElementById('mockups').appendChild(image);
+	image.classList.add('mockup-image');
 	// document.body.removeChild(link);
 	// delete link;
 }

@@ -158,3 +158,18 @@ img, canvas {
     display: block;
     position: unset;
 }
+
+.saveBtn {
+    cursor: pointer;
+    font-size: 15pt;
+}
+
+.saveBtn:visited {
+    text-transform: none;
+}
+
+
+.mockup-image{
+    position: unset;
+    max-width: 80%;
+}
