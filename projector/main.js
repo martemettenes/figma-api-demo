@@ -1,16 +1,17 @@
 // Image Canvas object
 const imagesAndCoord = [
-    {canvasName: 'canvas', coords: [[650, 134], [794, 161], [656, 441], [514, 402]]},
-    {canvasName: 'canvas_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]},
-    {canvasName: 'canvas_3', coords: [[304, 134], [549, 147], [550, 567], [312, 578]]}
+    {canvasName: 'canvas1_2', coords: [[650, 134], [794, 161], [656, 441], [514, 402]]},
+    {canvasName: 'canvas2_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]},
+    {canvasName: 'canvas3_2', coords: [[304, 134], [549, 147], [550, 567], [312, 578]]}
 ];
 
-// Access Token
-getPersonalAccessToken = function() {
-    const val = document.getElementById('token_input').value;
-    return val !== "" ? val : '576-3d868804-071a-4d20-a8aa-852d127e3e93';
-}
-//const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
+// // Access Token
+// getPersonalAccessToken = function() {
+//     const val = document.getElementById('token_input').value;
+//     return val !== "" ? val : '576-3d868804-071a-4d20-a8aa-852d127e3e93';
+// }
+
+const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
 
 //Creating link with URL from user
 function getFileKey(pageUrl) {
@@ -28,7 +29,8 @@ function getNodeId(pageUrl) {
 
 // Figma API
 function apiRequest(endpoint) {
-    const PERSONAL_ACCESS_TOKEN = getPersonalAccessToken();
+    // const PERSONAL_ACCESS_TOKEN = getPersonalAccessToken();
+    const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
     return fetch('https://api.figma.com/v1' + endpoint, {
         method: 'GET',
         headers: { "x-figma-token": PERSONAL_ACCESS_TOKEN }
@@ -43,7 +45,7 @@ function apiRequest(endpoint) {
 function addImageToCanvas(imageUrl) {
     stopProgress();
     const img = new Image();
-
+    img.crossOrigin = "Anonymous";
     img.src = imageUrl;
 
     img.onload = function () {
@@ -54,6 +56,7 @@ function addImageToCanvas(imageUrl) {
 
             const op = new html5jp.perspective(context, img);
             op.draw(imageInfo.coords);
+            localStorage.setItem("savedImageData", canvas.toDataURL("image/png"));
         });
     };
 }

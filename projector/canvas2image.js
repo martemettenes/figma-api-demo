@@ -266,10 +266,39 @@ var Canvas2Image = function () {
 
 // Save canvas as image
 var saveBtn = document.getElementById('savebtn');
-saveBtn.addEventListener("mousedown", toImage);
+saveBtn.addEventListener("mousedown", createImage);
 
 function toImage(){
-	var canvas = document.getElementById("canvas");
-    document.getElementById("phone-in-hand").src = canvas.toDataURL();
-    Canvas2Image.saveAsJPEG(canvas);
+	const data = localStorage.getItem("savedImageData");    
+	var canvas = document.getElementById("canvas1_2");
+	var image = document.getElementById("canvas1_1");
+    // document.getElementById("canvas1_1").src = canvas.toDataURL();
+    Canvas2Image.saveAsJPEG(data, image.width, image.height);
+}
+
+function createImage() {
+	const image1 = document.getElementById("canvas1_1");
+
+	const data1 = image1.src;
+	const data2 = localStorage.getItem("savedImageData");
+	// Merging image and canvas to one image    
+	mergeImages([data1, data2])
+		.then(b64 => {
+			downloadURI(b64, "test.png");
+		});
+}
+
+function downloadURI(uri, name) {
+	var link = document.createElement("a");
+	link.download = name;
+	link.target = "_blank";
+	link.href = uri;
+	document.body.appendChild(link);
+	link.click();
+
+	var image = document.createElement("img");
+	image.src = uri
+	document.getElementById('mockups').appendChild(image);
+	// document.body.removeChild(link);
+	// delete link;
 }
