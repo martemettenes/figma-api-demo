@@ -11,6 +11,7 @@ body {
     src: url("./font/Nationale-Regular.otf");
     background-color: rgb(29, 29, 29);
     font-size: 10pt;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -27,7 +28,7 @@ h1 {
     padding-left: 10%;
     padding-right: 10%;
     height: auto;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 form {
@@ -69,7 +70,7 @@ form {
 input {
     border: none;
     border-bottom: 2px solid #dedede;
-    min-width: 500px;
+    min-width: 50%;
     text-align: center;
     font-size: 10pt;
     background-color: inherit;

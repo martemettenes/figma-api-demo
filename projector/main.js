@@ -1,9 +1,14 @@
 // Image Canvas object
 const imagesAndCoord = [
+
+    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
     {canvasName: 'canvas1_2', coords: [[650, 134], [794, 161], [656, 441], [514, 402]]},
     {canvasName: 'canvas2_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]},
     {canvasName: 'canvas3_2', coords: [[304, 134], [549, 147], [550, 567], [312, 578]]}
 ];
+
+
+//Avoiding to input access token every time while testing
 
 // // Access Token
 // getPersonalAccessToken = function() {
