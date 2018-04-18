@@ -10,6 +10,7 @@ const imagesAndCoord = [
 
 //Avoiding to input access token every time while testing
 
+
 // // Access Token
 // getPersonalAccessToken = function() {
 //     const val = document.getElementById('token_input').value;

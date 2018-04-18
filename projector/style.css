@@ -171,5 +171,6 @@ img, canvas {
 
 .mockup-image{
     position: unset;
-    max-width: 80%;
+    height: 250px;
+    margin: 5px;
 }

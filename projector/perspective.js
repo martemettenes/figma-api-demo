@@ -32,6 +32,8 @@ if( typeof html5jp == 'undefined' ) {
         if( ! ctxd || ! ctxd.strokeStyle ) { return; }
         if( ! image || ! image.width || ! image.height ) { return; }
         // prepare a <canvas> for the image
+        
+        // cvso = canvas
         var cvso = document.createElement('canvas');
         cvso.width = parseInt(image.width);
         cvso.height = parseInt(image.height);

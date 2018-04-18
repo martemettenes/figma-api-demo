@@ -268,6 +268,9 @@ var Canvas2Image = function () {
 
 
 
+
+
+
 // Save canvas as image
 var saveBtn = document.getElementById('savebtn');
 saveBtn.addEventListener("mousedown", createImage);
@@ -297,6 +300,11 @@ function createImage() {
 		.then(b64 => {
 			downloadURI(b64, "test.png");
 		});
+
+	// What is the canvas coordinates when it is merged?
+		console.log(imagesAndCoord);
+	
+		const row1 = document.getElementById('row1').classList.add('hidden');
 }
 
 // Create Image 2
@@ -310,11 +318,14 @@ function createImageTwo() {
 		.then(b64 => {
 			downloadURI(b64, "test.png");
 		});
+
+		const row2 = document.getElementById('row2').classList.add('hidden');
 }
 
 // Create Image 3
 function createImageThree() {
 	const image1 = document.getElementById("canvas3_1");
+	const image2 = document.getElementById("canvas3_3")
 
 	const data1 = image1.src;
 	const data2 = localStorage.getItem("savedImageData");
@@ -323,20 +334,27 @@ function createImageThree() {
 		.then(b64 => {
 			downloadURI(b64, "test.png");
 		});
+
+		const row3 = document.getElementById('row3');
+		row3.classList.add('hidden');
 }
 
 function downloadURI(uri, name) {
-	var link = document.createElement("a");
-	link.download = name;
-	link.target = "_blank";
-	link.href = uri;
-	document.body.appendChild(link);
-	link.click();
+
+	//Open blank page?
+
+	// var link = document.createElement("a");
+	// link.download = name;
+	// link.target = "_blank";
+	// link.href = uri;
+	// document.body.appendChild(link);
+	// link.click();
 
 	var image = document.createElement("img");
 	image.src = uri
 	document.getElementById('mockups').appendChild(image);
 	image.classList.add('mockup-image');
+
 	// document.body.removeChild(link);
 	// delete link;
 }
