@@ -174,3 +174,12 @@ img, canvas {
     height: 250px;
     margin: 5px;
 }
+
+.testingbox {
+left: 520px;
+top: 88px;
+width: 179px;
+height: 325px;
+background-color: pink;
+position: fixed;
+}
