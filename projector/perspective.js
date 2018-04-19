@@ -32,7 +32,7 @@ if( typeof html5jp == 'undefined' ) {
         if( ! ctxd || ! ctxd.strokeStyle ) { return; }
         if( ! image || ! image.width || ! image.height ) { return; }
         // prepare a <canvas> for the image
-        
+
         // cvso = canvas
         var cvso = document.createElement('canvas');
         cvso.width = parseInt(image.width);
@@ -70,6 +70,7 @@ if( typeof html5jp == 'undefined' ) {
         var d2y = points[2][1];
         var d3x = points[3][0];
         var d3y = points[3][1];
+        
         // compute the dimension of each side
         var dims = [
             Math.sqrt( Math.pow(d0x-d1x, 2) + Math.pow(d0y-d1y, 2) ), // top side
