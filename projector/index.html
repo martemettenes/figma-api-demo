@@ -17,44 +17,59 @@
 <div class="form-box">
         <h1> Mockup Generator</h1>
 
-<form action="javascript:callFigmaAndDrawMockups()">
+        <div id="menu" class="menu">
+                <div id="apple" class="devicebtn">Apple</div>
+                <div id="android" class="devicebtn">Android</div>
+            </div>
 
-        <div class="input">
+        <form action="javascript:callFigmaAndDrawMockups()"> 
+
+            <div class="input hidden">
                 <input id='token_input' placeholder="Personal access token" type="text">
-        </div>
+            </div>
 
-    <div class="menu">
-        <div id="apple" class="devicebtn">Apple</div>
-        <div id="android" class="devicebtn">Android</div>
-        <div id="tv" class="devicebtn">TVs</div>
-        <div id="artist" class="devicebtn">Artist</div>
-        <div id="album" class="devicebtn">Album</div>
-    </div>
+            <div class="input apple_device_checkbox">
+                <div class="flex">
+                    <p class="checkbox"> iPhone X </p>
+                    <input id="iphonex" class="check" type="checkbox" name="iphonex" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=20%3A0">
+                </div>
+                <div class="flex">
+                        <p class="checkbox"> Macbook Pro </p>
+                        <input id="macbook" class="check" type="checkbox" name="iphonex" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=20%3A4">
+                </div>
+                <div class="flex">
+                        <p class="checkbox"> Galaxy S8 </p>
+                        <input id="galaxys8" class="check" type="checkbox" name="galaxys8" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=15%3A4">
+                </div>
+            </div>
 
-    <div class="input hidden" id="android_devices">
-        <h4> Android Devices</h4>
-        <p> Enter link to Figma Frame. Make sure the node-id is included in the url</p>
-            <input class="width" placeholder="Samsung Galaxy S9+" type="text"></input>
-            <input class="width" placeholder="HTC Desire 530" type="text"></input>
-            <input class="width" placeholder="LG Q6" type="text"></input>
-            <input class="width" placeholder="Samsung Tablet" type="text"></input>
-    </div>
 
-    <div class="input hidden" id="apple_devices">
-            <h4> Apple Devices</h4>
-            <p> Enter link to Figma Frame. Make sure the node-id is included in the url</p>
-            <input class="width" placeholder="iPhone 8" type="text"></input>
-            <input class="width" placeholder="iPhone X" type="text"></input>
-            <input class="width" placeholder="iPad Pro" type="text"></input>
-            <input class="width" placeholder="Macbook Pro" type="text"></input>
-            <input class="width" placeholder="iMac" type="text"></input>
-    </div>
+            <div class="input hidden" id="apple_devices">
+                    <h4> Apple Devices</h4>
+                    <p> Enter link to Figma Frame. Make sure the node-id is included in the url</p>
+                    <input class="width" placeholder="iPhone 8" type="text"></input>
+                    <input class="width" placeholder="iPhone X" type="text"></input>
+                    <input class="width" placeholder="iPad Pro" type="text"></input>
+                    <input class="width" placeholder="Macbook Pro" type="text"></input>
+                    <input class="width" placeholder="iMac" type="text"></input>
+            </div>
 
-    <div class="input">
-        <input id='url_input' placeholder="Enter Figma URL" type="text">
-    </div>
-    <button class="submit">Render</button>
-</form>
+            <div class="input hidden" id="android_devices">
+                <h4> Android Devices</h4>
+                <p> Enter link to Figma Frame. Make sure the node-id is included in the url</p>
+                <input class="width" placeholder="Samsung Galaxy S9+" type="text"></input>
+                <input class="width" placeholder="HTC Desire 530" type="text"></input>
+                <input class="width" placeholder="LG Q6" type="text"></input>
+                <input class="width" placeholder="Samsung Tablet" type="text"></input>
+            </div>
+            
+            <div class="input">
+                <input id='url_input' placeholder="Enter Figma URL" type="text">
+            </div>
+
+            <button class="submit">Render</button>
+    </form>
+
 </div>
 
 <section id="mockups" class="hidden">

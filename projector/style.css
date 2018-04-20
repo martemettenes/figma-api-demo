@@ -181,3 +181,33 @@ img, canvas {
 section {
     margin-bottom: 100px;
 }
+
+option{
+    width: 500px;
+}
+
+.apple_device_checkbox {
+    width: 20%;
+    margin: 0 auto;
+}
+
+p.checkbox{
+    text-align: left;
+    display: inline;
+    left: 0;
+    margin-top: 0;
+}
+
+.check {
+    margin: 0;
+    margin-left: 30px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 0px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}

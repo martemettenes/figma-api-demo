@@ -26,6 +26,7 @@ function getFileKey(pageUrl) {
     const parser = document.createElement('a');
     parser.href = pageUrl;
     return parser.pathname.replace('/file/', '').replace(/\/.*/,'');
+    console.log('hello'); // Why is this function not running?
 }
 
 // Get Figma Frame node-ID
@@ -66,7 +67,7 @@ function addImageToCanvas(imageUrl) {
             op.draw(imageInfo.coords);
             localStorage.setItem("savedImageData", canvas.toDataURL("image/png"));
 
-            console.log(imageInfo.coords);
+            console.log('imageInfo.coords ' + imageInfo.coords);
         });
     };
 }
@@ -76,23 +77,63 @@ function addImageToCanvas(imageUrl) {
 function callFigmaAndDrawMockups() {
     startProgress();
 
-    // Getting URL from user input
-    const pageUrl = document.getElementById('url_input').value;
+// Getting URL from HTML
+// const pageUrl = document.getElementById('url_input').value;
+const pageUrl = 'https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=1%3A3';
+const galaxys = document.getElementById('galaxys8');
+const iphonex = document.getElementById('iphonex');
+const mac = document.getElementById('macbook');
 
-    const nodeId = getNodeId(pageUrl);
+const nodeId = getNodeId(pageUrl);
+const galaxyId = getNodeId(galaxys.value);
+const iphonexId = getNodeId(iphonex.value);
+const macId = getNodeId(mac.value);
+
+//const nodeId = getNodeId(galaxyUrl);
+// Ved å bruke denne, og bytte ut pageUrl med galaxyUrl i apirequest under, så funker det å 
+
 
     //Using URL from User, asking for access to the Figma frame
-    apiRequest('/images/' + getFileKey(pageUrl) + '?ids=' + nodeId)
+    // ORIGINAL KODE
+
+    // apiRequest('/images/' + getFileKey(pageUrl) + '?ids=' + nodeId)
+    //     .then(function (apiResponse) {
+    //         // Adding Figma Frame to Canvas
+    //        addImageToCanvas(apiResponse.images[nodeId]);
+    //        // Images is visible when the frame is added to canvas
+    //        visibleImages(); 
+    //     });
+
+    if (galaxys.checked == true){
+        apiRequest('/images/' + getFileKey(galaxys.value) + '?ids=' + galaxyId)
         .then(function (apiResponse) {
             // Adding Figma Frame to Canvas
-           addImageToCanvas(apiResponse.images[nodeId]);
+           addImageToCanvas(apiResponse.images[galaxyId]);
            // Images is visible when the frame is added to canvas
            visibleImages(); 
         });
+    }
+
+    if (iphonex.checked == true){
+        apiRequest('/images/' + getFileKey(iphonex.value) + '?ids=' + iphonexId)
+        .then(function (apiResponse) {
+            // Adding Figma Frame to Canvas
+           addImageToCanvas(apiResponse.images[iphonexId]);
+           // Images is visible when the frame is added to canvas
+           visibleImages(); 
+        });
+    }
+
 }
 
 
+// Selecting device
+const media = ['Apple', 'Android', 'Mac'];
+const menu = document.getElementById('menu');
+
+
 // Form Styling and Functions
+
 
 const android = document.getElementById('android');
 const apple = document.getElementById('apple');
