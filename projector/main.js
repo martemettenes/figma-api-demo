@@ -65,6 +65,8 @@ function addImageToCanvas(imageUrl) {
             const op = new html5jp.perspective(context, img);
             op.draw(imageInfo.coords);
             localStorage.setItem("savedImageData", canvas.toDataURL("image/png"));
+
+            console.log(imageInfo.coords);
         });
     };
 }

@@ -89,19 +89,23 @@ function createImageFour() {
 		row4.classList.add('hidden');
 }
 
-// Create Image 4
+// Create Image 5
 function createImageFive() {
+    // This is the background image
 	const image1 = document.getElementById("canvas5_1");
 
-	const data1 = image1.src;
+    const data1 = image1.src;
+    // data2 = canvas image
 	const data2 = localStorage.getItem("savedImageData");
-	// Merging image and canvas to one image    
-	mergeImages([data1, data2])
+    // Merging image and canvas to one image. Image is png so canvas first then image in this particular case    
+    console.log(localStorage.getItem("savedImageData"));
+
+	mergeImages([data2, data1])
 		.then(b64 => {
 			downloadURI(b64, "test.png");
 		});
 
-		const row4 = document.getElementById('row5');
+		const row5 = document.getElementById('row5');
 		row5.classList.add('hidden');
 }
 
