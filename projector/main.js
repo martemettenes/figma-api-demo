@@ -51,8 +51,11 @@ function apiRequest(endpoint) {
 }
 
 //Adding Figma Frame as image
+// imageUrl is the 'apiResponse.images[nodeId]' in the callFigmaAndDrawMockups function
+
 function addImageToCanvas(imageUrl) {
     stopProgress();
+    // The Image Constructor is equivalent to document.createElement('img').
     const img = new Image();
     img.crossOrigin = "Anonymous";
     img.src = imageUrl;
@@ -104,6 +107,8 @@ const macId = getNodeId(mac.value);
     //        visibleImages(); 
     //     });
 
+
+    // If Galaxy S8 is checked
     if (galaxys.checked == true){
         apiRequest('/images/' + getFileKey(galaxys.value) + '?ids=' + galaxyId)
         .then(function (apiResponse) {
@@ -114,11 +119,23 @@ const macId = getNodeId(mac.value);
         });
     }
 
+    // If iPhone X is checked
     if (iphonex.checked == true){
         apiRequest('/images/' + getFileKey(iphonex.value) + '?ids=' + iphonexId)
         .then(function (apiResponse) {
             // Adding Figma Frame to Canvas
            addImageToCanvas(apiResponse.images[iphonexId]);
+           // Images is visible when the frame is added to canvas
+           visibleImages(); 
+        });
+    }
+
+    // If Macbook is checked
+    if (mac.checked == true){
+        apiRequest('/images/' + getFileKey(mac.value) + '?ids=' + macId)
+        .then(function (apiResponse) {
+            // Adding Figma Frame to Canvas
+           addImageToCanvas(apiResponse.images[macId]);
            // Images is visible when the frame is added to canvas
            visibleImages(); 
         });
@@ -133,8 +150,6 @@ const menu = document.getElementById('menu');
 
 
 // Form Styling and Functions
-
-
 const android = document.getElementById('android');
 const apple = document.getElementById('apple');
 const tv = document.getElementById('tv');
