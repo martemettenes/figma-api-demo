@@ -178,7 +178,6 @@ const macId = getNodeId(mac.value);
            visibleImages(); 
         });
     }
-    
 }
 
 // Menu - Selecting device
