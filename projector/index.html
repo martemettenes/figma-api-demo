@@ -20,6 +20,7 @@
         <div id="menu" class="menu">
                 <div id="apple" class="devicebtn">Apple</div>
                 <div id="android" class="devicebtn">Android</div>
+                <div id="newmockup" class="devicebtn">New Mockup Template</div>
             </div>
 
         <form action="javascript:callFigmaAndDrawMockups()"> 
@@ -35,7 +36,7 @@
                 </div>
                 <div class="flex">
                         <p class="checkbox"> Macbook Pro </p>
-                        <input id="macbook" class="check" type="checkbox" name="iphonex" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=20%3A4">
+                        <input id="macbook" class="check" type="checkbox" name="macbook" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=20%3A4">
                 </div>
                 <div class="flex">
                         <p class="checkbox"> Galaxy S8 </p>
@@ -64,11 +65,40 @@
             </div>
             
             <div class="input">
-                <input id='url_input' placeholder="Enter Figma URL" type="text">
+                <input class="width" id="url_input" placeholder="Enter Figma URL" type="text">
             </div>
 
             <button class="submit">Render</button>
     </form>
+
+    <div class="input hidden" id="newmockupform">
+            <h2> Create new</h2>
+            <p> Create a new template for a mockup image. Input coordinates and upload background image for your mockup.</p>
+                <form>
+                    <h3 class="subtitle"> Canvas coordinates </h3>
+                        <p class="input-expl"> Top left corner</p>
+                        <input class="half-width" placeholder="X" type="text"></input>
+                        <input class="half-width" placeholder="Y" type="text"></input>
+
+                        <p class="input-expl"> Top right corner</p>
+                        <input class="half-width" placeholder="X" type="text"></input>
+                        <input class="half-width" placeholder="Y" type="text"></input>
+
+                        <p class="input-expl"> Bottom right corner</p>
+                        <input class="half-width" placeholder="X" type="text"></input>
+                        <input class="half-width" placeholder="Y" type="text"></input>
+
+                        <p class="input-expl"> Bottom left corner</p>
+                        <input class="half-width" placeholder="X" type="text"></input>
+                        <input class="half-width" placeholder="Y" type="text"></input>
+
+                    <h3 class="subtitle"> Upload Images </h3>
+                        <input placeholder="Image File" type="text">
+                    
+                    <h3 class="subtitle"> Link to canvas </h3>
+                        <input placeholder="URL link" type="text">
+                </form>
+        </div>
 
 </div>
 

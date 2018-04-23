@@ -27,7 +27,7 @@ function createImage() {
 	const image1 = document.getElementById("canvas1_1");
 
 	const data1 = image1.src;
-	const data2 = localStorage.getItem("savedImageData");
+	const data2 = localStorage.getItem("savedImageData2");
 	// Merging image and canvas to one image    
 	mergeImages([data1, data2])
 		.then(b64 => {
@@ -45,7 +45,7 @@ function createImageTwo() {
 	const image1 = document.getElementById("canvas2_1");
 
 	const data1 = image1.src;
-	const data2 = localStorage.getItem("savedImageData");
+	const data2 = localStorage.getItem("savedImageData2");
 	// Merging image and canvas to one image    
 	mergeImages([data1, data2])
 		.then(b64 => {
@@ -61,7 +61,7 @@ function createImageThree() {
 	const image2 = document.getElementById("canvas3_3")
 
 	const data1 = image1.src;
-	const data2 = localStorage.getItem("savedImageData");
+	const data2 = localStorage.getItem("savedImageData2");
 	// Merging image and canvas to one image    
 	mergeImages([data1, data2])
 		.then(b64 => {

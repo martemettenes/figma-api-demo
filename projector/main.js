@@ -1,4 +1,5 @@
 // Image Canvas object
+/* Original Code
 const imagesAndCoord = [
 
     // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
@@ -9,9 +10,23 @@ const imagesAndCoord = [
     {canvasName: 'canvas5_2', coords: [[520, 50], [701, 50], [701, 442], [520, 442]]}
 ];
 
+*/
+
+const imagesAndCoord = [
+    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+    {canvasName: 'canvas4_2', coords: [[520, 88], [699, 88], [699, 413], [520, 413]]},
+    {canvasName: 'canvas5_2', coords: [[520, 50], [701, 50], [701, 442], [520, 442]]}
+];
+
+const imagesAndCoord2 = [
+        // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+        {canvasName: 'canvas1_2', coords: [[650, 134], [794, 161], [656, 441], [514, 402]]},
+        {canvasName: 'canvas2_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]},
+        {canvasName: 'canvas3_2', coords: [[304, 134], [549, 147], [550, 567], [312, 578]]},
+];
+
 
 //Avoiding to input access token every time while testing
-
 
 // // Access Token
 // getPersonalAccessToken = function() {
@@ -26,7 +41,6 @@ function getFileKey(pageUrl) {
     const parser = document.createElement('a');
     parser.href = pageUrl;
     return parser.pathname.replace('/file/', '').replace(/\/.*/,'');
-    console.log('hello'); // Why is this function not running?
 }
 
 // Get Figma Frame node-ID
@@ -36,7 +50,7 @@ function getNodeId(pageUrl) {
     return decodeURIComponent(parser.search).replace('?node-id=','');
 }
 
-// Figma API
+// Fetch Figma API
 function apiRequest(endpoint) {
     // const PERSONAL_ACCESS_TOKEN = getPersonalAccessToken();
     const PERSONAL_ACCESS_TOKEN = '576-3d868804-071a-4d20-a8aa-852d127e3e93';
@@ -61,16 +75,42 @@ function addImageToCanvas(imageUrl) {
     img.src = imageUrl;
 
     img.onload = function () {
-        imagesAndCoord.forEach(function (imageInfo) {
-            const canvas = document.getElementById(imageInfo.canvasName);
-
+        imagesAndCoord.forEach(function (imagesAndCoord) {
+            const canvas = document.getElementById(imagesAndCoord.canvasName);
             const context = canvas.getContext('2d')
-
             const op = new html5jp.perspective(context, img);
-            op.draw(imageInfo.coords);
+            op.draw(imagesAndCoord.coords);
+
+            // Convert the image in canvas to image/png
             localStorage.setItem("savedImageData", canvas.toDataURL("image/png"));
 
-            console.log('imageInfo.coords ' + imageInfo.coords);
+            console.log('imagesAndCoord.coords ' + imagesAndCoord.coords);
+            console.log('image URL' + imageUrl);
+            console.log('canvas name ' + imagesAndCoord.canvasName);
+        });
+    };
+}
+
+function addImageToCanvas2(imageUrl) {
+    stopProgress();
+    // The Image Constructor is equivalent to document.createElement('img').
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = imageUrl;
+
+    img.onload = function () {
+        imagesAndCoord2.forEach(function (imagesAndCoord2) {
+            const canvas = document.getElementById(imagesAndCoord2.canvasName);
+            const context = canvas.getContext('2d')
+            const op = new html5jp.perspective(context, img);
+            op.draw(imagesAndCoord2.coords);
+
+            // Convert the image in canvas to image/png
+            localStorage.setItem("savedImageData2", canvas.toDataURL("image/png"));
+
+            console.log('imagesAndCoord2.coords ' + imagesAndCoord2.coords);
+            console.log('image URL' + imageUrl);
+            console.log('canvas name 2 ' + imagesAndCoord2.canvasName);
         });
     };
 }
@@ -95,7 +135,6 @@ const macId = getNodeId(mac.value);
 //const nodeId = getNodeId(galaxyUrl);
 // Ved å bruke denne, og bytte ut pageUrl med galaxyUrl i apirequest under, så funker det å 
 
-
     //Using URL from User, asking for access to the Figma frame
     // ORIGINAL KODE
 
@@ -107,14 +146,13 @@ const macId = getNodeId(mac.value);
     //        visibleImages(); 
     //     });
 
-
     // If Galaxy S8 is checked
     if (galaxys.checked == true){
         apiRequest('/images/' + getFileKey(galaxys.value) + '?ids=' + galaxyId)
         .then(function (apiResponse) {
             // Adding Figma Frame to Canvas
-           addImageToCanvas(apiResponse.images[galaxyId]);
-           // Images is visible when the frame is added to canvas
+           addImageToCanvas2(apiResponse.images[galaxyId]);
+
            visibleImages(); 
         });
     }
@@ -125,7 +163,7 @@ const macId = getNodeId(mac.value);
         .then(function (apiResponse) {
             // Adding Figma Frame to Canvas
            addImageToCanvas(apiResponse.images[iphonexId]);
-           // Images is visible when the frame is added to canvas
+
            visibleImages(); 
         });
     }
@@ -136,23 +174,22 @@ const macId = getNodeId(mac.value);
         .then(function (apiResponse) {
             // Adding Figma Frame to Canvas
            addImageToCanvas(apiResponse.images[macId]);
-           // Images is visible when the frame is added to canvas
+
            visibleImages(); 
         });
     }
-
+    
 }
 
-
-// Selecting device
+// Menu - Selecting device
 const media = ['Apple', 'Android', 'Mac'];
 const menu = document.getElementById('menu');
-
 
 // Form Styling and Functions
 const android = document.getElementById('android');
 const apple = document.getElementById('apple');
 const tv = document.getElementById('tv');
+const newMockup = document.getElementById('newmockup');
 
 const appleDevices = document.getElementById('apple_devices');
 const androidDevices = document.getElementById('android_devices');
@@ -171,8 +208,7 @@ android.addEventListener("mousedown", function(){
     appleDevices.classList.add('hidden');
     });
    
-
+// Show Images
 function visibleImages(){
     document.getElementById('mockups').classList.remove('hidden');
 }
-
