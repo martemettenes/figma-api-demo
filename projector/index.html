@@ -14,92 +14,77 @@
 
 
 <img class="logo" src="images/Logo-Tall.png" alt="Tidal Logo">
-<div class="form-box">
-        <h1> Mockup Generator</h1>
+<h1> Mockup Generator</h1>
 
         <div id="menu" class="menu">
-                <div id="apple" class="devicebtn">Apple</div>
-                <div id="android" class="devicebtn">Android</div>
-                <div id="newmockup" class="devicebtn">New Mockup Template</div>
-            </div>
+            <div id="render" class="devicebtn active">Render Mockups</div>
+            <div id="newmockup" class="devicebtn">New Mockup Template</div>
+        </div>
 
-        <form action="javascript:callFigmaAndDrawMockups()"> 
-
+ <div id="renderform" class="form-box">
+        <form id="checkbox-form" action="javascript:callFigmaAndDrawMockups()"> 
             <div class="input hidden">
                 <input id='token_input' placeholder="Personal access token" type="text">
             </div>
-
             <div class="input apple_device_checkbox">
                 <div class="flex">
                     <p class="checkbox"> iPhone X </p>
                     <input id="iphonex" class="check" type="checkbox" name="iphonex" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=20%3A0">
                 </div>
                 <div class="flex">
-                        <p class="checkbox"> Macbook Pro </p>
-                        <input id="macbook" class="check" type="checkbox" name="macbook" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=20%3A4">
+                    <p class="checkbox"> Macbook Pro </p>
+                    <input id="macbook" class="check" type="checkbox" name="macbook" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=20%3A4">
                 </div>
                 <div class="flex">
-                        <p class="checkbox"> Galaxy S8 </p>
-                        <input id="galaxys8" class="check" type="checkbox" name="galaxys8" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=15%3A4">
+                    <p class="checkbox"> Galaxy S8 </p>
+                    <input id="galaxys8" class="check" type="checkbox" name="galaxys8" value="https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node-id=15%3A4">
                 </div>
             </div>
-
-
-            <div class="input hidden" id="apple_devices">
-                    <h4> Apple Devices</h4>
-                    <p> Enter link to Figma Frame. Make sure the node-id is included in the url</p>
-                    <input class="width" placeholder="iPhone 8" type="text"></input>
-                    <input class="width" placeholder="iPhone X" type="text"></input>
-                    <input class="width" placeholder="iPad Pro" type="text"></input>
-                    <input class="width" placeholder="Macbook Pro" type="text"></input>
-                    <input class="width" placeholder="iMac" type="text"></input>
-            </div>
-
-            <div class="input hidden" id="android_devices">
-                <h4> Android Devices</h4>
-                <p> Enter link to Figma Frame. Make sure the node-id is included in the url</p>
-                <input class="width" placeholder="Samsung Galaxy S9+" type="text"></input>
-                <input class="width" placeholder="HTC Desire 530" type="text"></input>
-                <input class="width" placeholder="LG Q6" type="text"></input>
-                <input class="width" placeholder="Samsung Tablet" type="text"></input>
-            </div>
-            
-            <div class="input">
+            <div class="input hidden">
                 <input class="width" id="url_input" placeholder="Enter Figma URL" type="text">
             </div>
-
             <button class="submit">Render</button>
-    </form>
 
-    <div class="input hidden" id="newmockupform">
-            <h2> Create new</h2>
-            <p> Create a new template for a mockup image. Input coordinates and upload background image for your mockup.</p>
-                <form>
-                    <h3 class="subtitle"> Canvas coordinates </h3>
-                        <p class="input-expl"> Top left corner</p>
-                        <input class="half-width" placeholder="X" type="text"></input>
-                        <input class="half-width" placeholder="Y" type="text"></input>
+            <div id="errormsg" class="hidden">
+                No devices selected
+            </div>
+        </form>
+</div>
 
-                        <p class="input-expl"> Top right corner</p>
-                        <input class="half-width" placeholder="X" type="text"></input>
-                        <input class="half-width" placeholder="Y" type="text"></input>
-
-                        <p class="input-expl"> Bottom right corner</p>
-                        <input class="half-width" placeholder="X" type="text"></input>
-                        <input class="half-width" placeholder="Y" type="text"></input>
-
-                        <p class="input-expl"> Bottom left corner</p>
-                        <input class="half-width" placeholder="X" type="text"></input>
-                        <input class="half-width" placeholder="Y" type="text"></input>
-
-                    <h3 class="subtitle"> Upload Images </h3>
-                        <input placeholder="Image File" type="text">
-                    
-                    <h3 class="subtitle"> Link to canvas </h3>
-                        <input placeholder="URL link" type="text">
-                </form>
+<div class="form-box hidden" id="newmockupform">
+    <h2> Create new</h2>
+    <p class="textbox"> Create a new template for a mockup image. Input coordinates and upload background image for your mockup.</p>
+    <form class="">
+        <h3 class="subtitle"> Canvas coordinates </h3>
+        <div>
+        <!-- <p class="input-expl"> Top left corner</p> -->
+        <input id="tlx" class="half-width" placeholder="X" type="text"></input>
+        <input id="tly" class="half-width" placeholder="Y" type="text"></input>
         </div>
 
+        <div>
+        <!-- <p class="input-expl"> Top right corner</p> -->
+        <input id="trx" class="half-width" placeholder="X" type="text"></input>
+        <input id="try" class="half-width" placeholder="Y" type="text"></input>
+        </div>
+
+        <div>
+        <!-- <p class="input-expl"> Bottom right corner</p> -->
+        <input id="brx" class="half-width" placeholder="X" type="text"></input>
+        <input id="bry"class="half-width" placeholder="Y" type="text"></input>
+        </div>
+
+        <div>
+        <!-- <p class="input-expl"> Bottom left corner</p> -->
+        <input id="blx" class="half-width" placeholder="X" type="text"></input>
+        <input id="bly" class="half-width" placeholder="Y" type="text"></input>
+        </div>
+
+        <button class="submit"> Upload Image </button>
+                    
+        <h3 class="subtitle"> Link to canvas </h3>
+        <input placeholder="URL link" type="text">
+    </form>
 </div>
 
 <section id="mockups" class="hidden">
@@ -144,12 +129,14 @@
     </div>
     <a class="submit" id="savebtnfive">Save image</a>
 </div>
-
 </section>
 
 <script src="progresstimer.js"></script>
 <script src="main.js"></script>
 <script src="perspective.js"></script>
 <script src="canvasimage.js"></script>
+
+
+
 </body>
 </html>

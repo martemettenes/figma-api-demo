@@ -78,9 +78,15 @@ function createImageFour() {
 	const image1 = document.getElementById("canvas4_1");
 
 	const data1 = image1.src;
-	const data2 = localStorage.getItem("savedImageData");
+	const data2 = JSON.parse(localStorage.getItem("savedImageData"));
+	console.log(data2)
+	const canvasImage = {
+		src: data2.imageUrl,
+		x: 0,
+		y: 0
+	}
 	// Merging image and canvas to one image    
-	mergeImages([data1, data2])
+	mergeImages([data1, canvasImage], {width: data2.width, height: data2.height})
 		.then(b64 => {
 			downloadURI(b64, "test.png");
 		});
@@ -96,17 +102,19 @@ function createImageFive() {
 
     const data1 = image1.src;
     // data2 = canvas image
-	const data2 = localStorage.getItem("savedImageData");
-    // Merging image and canvas to one image. Image is png so canvas first then image in this particular case    
-    console.log(localStorage.getItem("savedImageData"));
-
-	mergeImages([data2, data1])
+	const data2 = JSON.parse(localStorage.getItem("savedImageData"));
+	console.log(data2)
+	const canvasImage = {
+		src: data2.imageUrl,
+		x: 0,
+		y: 0
+	}
+	// Merging image and canvas to one image    
+	mergeImages([canvasImage, data1], {width: data2.width, height: data2.height})
 		.then(b64 => {
 			downloadURI(b64, "test.png");
 		});
 
-		const row5 = document.getElementById('row5');
-		row5.classList.add('hidden');
 }
 
 
