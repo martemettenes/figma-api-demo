@@ -11,17 +11,25 @@ const imagesAndCoord = [
 ];
 */
 
-const imagesAndCoord2 = [
-        // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
-        {canvasName: 'canvas1_2', coords: [[650, 134], [794, 161], [656, 441], [514, 402]]},
-        {canvasName: 'canvas2_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]},
-        {canvasName: 'canvas3_2', coords: [[304, 134], [549, 147], [550, 567], [312, 578]]},
-];
-
 const imagesAndCoord = [
     // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
-    {canvasName: 'canvas4_2', coords: [[520, 88], [699, 88], [699, 413], [520, 413]]},
     {canvasName: 'canvas5_2', coords: [[520, 50], [701, 50], [701, 442], [520, 442]]}
+    
+];
+
+const imagesAndCoord2 = [
+        // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+    {canvasName: 'canvas2_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]}
+];
+
+const imagesAndCoord3 = [
+    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+    {canvasName: 'canvas6_2', coords: [[485, 334], [728, 316], [728, 902], [485, 869]]}
+];
+
+const imagesAndCoord4 = [
+    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+    {canvasName: 'canvas1_2', coords: [[238, 167], [778, 167], [778, 474], [238, 474]]}
 ];
 
 
@@ -66,6 +74,8 @@ function apiRequest(endpoint) {
 //Adding Figma Frame as image
 // imageUrl is the 'apiResponse.images[nodeId]' in the callFigmaAndDrawMockups function
 
+
+// iPhone
 function addImageToCanvas(imageUrl) {
     stopProgress();
     // The Image Constructor is equivalent to document.createElement('img').
@@ -78,6 +88,8 @@ function addImageToCanvas(imageUrl) {
             const canvas = document.getElementById(imagesAndCoord.canvasName);
             const context = canvas.getContext('2d')
             const op = new html5jp.perspective(context, img);
+
+            // before this draw or something merge the objects
             op.draw(imagesAndCoord.coords);
             console.log(op)
             const savedImageData = {
@@ -102,6 +114,8 @@ function addImageToCanvas(imageUrl) {
     };
 }
 
+
+// Galaxy
 function addImageToCanvas2(imageUrl) {
     stopProgress();
     // The Image Constructor is equivalent to document.createElement('img').
@@ -126,6 +140,55 @@ function addImageToCanvas2(imageUrl) {
     };
 }
 
+function addImageToCanvas3(imageUrl) {
+    stopProgress();
+    // The Image Constructor is equivalent to document.createElement('img').
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = imageUrl;
+
+    img.onload = function () {
+        imagesAndCoord3.forEach(function (imagesAndCoord3) {
+            const canvas = document.getElementById(imagesAndCoord3.canvasName);
+            const context = canvas.getContext('2d')
+            const op = new html5jp.perspective(context, img);
+            op.draw(imagesAndCoord3.coords);
+
+            // Convert the image in canvas to image/png
+            localStorage.setItem("savedImageData3", canvas.toDataURL("image/png"));
+
+            console.log('imagesAndCoord3.coords ' + imagesAndCoord3.coords);
+            console.log('image URL' + imageUrl);
+            console.log('canvas name 3 ' + imagesAndCoord3.canvasName);
+        });
+    };
+}
+
+function addImageToCanvas4(imageUrl) {
+    stopProgress();
+    // The Image Constructor is equivalent to document.createElement('img').
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = imageUrl;
+
+    img.onload = function () {
+        imagesAndCoord4.forEach(function (imagesAndCoord4) {
+            const canvas = document.getElementById(imagesAndCoord4.canvasName);
+            const context = canvas.getContext('2d')
+            const op = new html5jp.perspective(context, img);
+            op.draw(imagesAndCoord4.coords);
+
+            // Convert the image in canvas to image/png
+            localStorage.setItem("savedImageData4", canvas.toDataURL("image/png"));
+
+            console.log('imagesAndCoord4.coords ' + imagesAndCoord4.coords);
+            console.log('image URL' + imageUrl);
+            console.log('canvas name 1_1 ' + imagesAndCoord4.canvasName);
+        });
+    };
+}
+
+
 // The function that runs when form is submitted. 
 function callFigmaAndDrawMockups() {
 
@@ -136,11 +199,13 @@ const pageUrl = 'https://www.figma.com/file/MWZXKyAfszpYlceDaD0bNKtx/appios?node
 const galaxys = document.getElementById('galaxys8');
 const iphonex = document.getElementById('iphonex');
 const mac = document.getElementById('macbook');
+const iphone8 = document.getElementById('iphone8');
 
 const nodeId = getNodeId(pageUrl);
 const galaxyId = getNodeId(galaxys.value);
 const iphonexId = getNodeId(iphonex.value);
 const macId = getNodeId(mac.value);
+const iphone8Id = getNodeId(iphone8.value);
 
 
 //const nodeId = getNodeId(galaxyUrl);
@@ -190,13 +255,25 @@ const macId = getNodeId(mac.value);
         apiRequest('/images/' + getFileKey(mac.value) + '?ids=' + macId)
         .then(function (apiResponse) {
             // Adding Figma Frame to Canvas
-           addImageToCanvas(apiResponse.images[macId]);
+           addImageToCanvas4(apiResponse.images[macId]);
 
            visibleImages(); 
         });
     }
 
-    else if (galaxys.checked == false && iphonex.checked == false && mac.checked == false) {
+    if (iphone8.checked == true){
+        document.getElementById('errormsg').classList.add('hidden');
+        startProgress();
+        apiRequest('/images/' + getFileKey(iphone8.value) + '?ids=' + iphone8Id)
+        .then(function (apiResponse) {
+            // Adding Figma Frame to Canvas
+           addImageToCanvas3(apiResponse.images[iphone8Id]);
+
+           visibleImages(); 
+        });
+    }
+
+    else if (galaxys.checked == false && iphonex.checked == false && mac.checked == false && iphone8.checked == false) {
         document.getElementById('errormsg').classList.remove('hidden');
     }
 

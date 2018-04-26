@@ -1,18 +1,17 @@
 // Save canvas as image
+
 var saveBtn = document.getElementById('savebtn');
 saveBtn.addEventListener("mousedown", createImage);
 
 var saveBtnTwo = document.getElementById('savebtntwo');
 saveBtnTwo.addEventListener("mousedown", createImageTwo);
 
-var saveBtnThree = document.getElementById('savebtnthree');
-saveBtnThree.addEventListener("mousedown", createImageThree);
-
-var saveBtnFour = document.getElementById('savebtnfour');
-saveBtnFour.addEventListener("mousedown", createImageFour);
-
 var saveBtnFive = document.getElementById('savebtnfive');
 saveBtnFive.addEventListener("mousedown", createImageFive);
+
+var saveBtnsix = document.getElementById('savebtnsix');
+saveBtnsix.addEventListener("mousedown", createImageSix);
+
 
 // function toImage(){
 // 	const data = localStorage.getItem("savedImageData");    
@@ -22,12 +21,14 @@ saveBtnFive.addEventListener("mousedown", createImageFive);
 //     Canvas2Image.saveAsJPEG(data, image.width, image.height);
 // }
 
+
+
 // Create Image 1
 function createImage() {
 	const image1 = document.getElementById("canvas1_1");
 
 	const data1 = image1.src;
-	const data2 = localStorage.getItem("savedImageData2");
+	const data2 = localStorage.getItem("savedImageData4");
 	// Merging image and canvas to one image    
 	mergeImages([data1, data2])
 		.then(b64 => {
@@ -35,10 +36,11 @@ function createImage() {
 		});
 
 	// What is the canvas coordinates when it is merged?
-		console.log(imagesAndCoord);
+		console.log(imagesAndCoord4);
 	
 		const row1 = document.getElementById('row1').classList.add('hidden');
 }
+
 
 // Create Image 2
 function createImageTwo() {
@@ -55,45 +57,6 @@ function createImageTwo() {
 		const row2 = document.getElementById('row2').classList.add('hidden');
 }
 
-// Create Image 3
-function createImageThree() {
-	const image1 = document.getElementById("canvas3_1");
-	const image2 = document.getElementById("canvas3_3")
-
-	const data1 = image1.src;
-	const data2 = localStorage.getItem("savedImageData2");
-	// Merging image and canvas to one image    
-	mergeImages([data1, data2])
-		.then(b64 => {
-			downloadURI(b64, "test.png");
-		});
-
-		const row3 = document.getElementById('row3');
-		row3.classList.add('hidden');
-}
-
-
-// Create Image 4
-function createImageFour() {
-	const image1 = document.getElementById("canvas4_1");
-
-	const data1 = image1.src;
-	const data2 = JSON.parse(localStorage.getItem("savedImageData"));
-	console.log(data2)
-	const canvasImage = {
-		src: data2.imageUrl,
-		x: 0,
-		y: 0
-	}
-	// Merging image and canvas to one image    
-	mergeImages([data1, canvasImage], {width: data2.width, height: data2.height})
-		.then(b64 => {
-			downloadURI(b64, "test.png");
-		});
-
-		const row4 = document.getElementById('row4');
-		row4.classList.add('hidden');
-}
 
 // Create Image 5
 function createImageFive() {
@@ -115,6 +78,22 @@ function createImageFive() {
 			downloadURI(b64, "test.png");
 		});
 
+		const row5 = document.getElementById('row5').classList.add('hidden');
+}
+
+// Create Image 6
+function createImageSix() {
+	const image1 = document.getElementById("canvas6_1");
+
+	const data1 = image1.src;
+	const data2 = localStorage.getItem("savedImageData3");
+	// Merging image and canvas to one image    
+	mergeImages([data1, data2])
+		.then(b64 => {
+			downloadURI(b64, "test.png");
+		});
+
+		const row6 = document.getElementById('row6').classList.add('hidden');
 }
 
 
