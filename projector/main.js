@@ -11,26 +11,27 @@ const imagesAndCoord = [
 ];
 */
 
-const imagesAndCoord = [
-    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
-    {canvasName: 'canvas5_2', coords: [[520, 50], [701, 50], [701, 442], [520, 442]]}
-    
-];
-
-const imagesAndCoord2 = [
-        // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
-    {canvasName: 'canvas2_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]}
-];
-
-const imagesAndCoord3 = [
-    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
-    {canvasName: 'canvas6_2', coords: [[485, 334], [728, 316], [728, 902], [485, 869]]}
-];
-
 const imagesAndCoord4 = [
     // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
     {canvasName: 'canvas1_2', coords: [[238, 167], [778, 167], [778, 474], [238, 474]]}
 ];
+
+const imagesAndCoord2 = [
+    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+{canvasName: 'canvas2_2', coords: [[777, 172], [871, 266], [518, 477], [461, 362]]}
+];
+
+const imagesAndCoord = [
+    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+    {canvasName: 'canvas3_2', coords: [[520, 50], [701, 50], [701, 442], [520, 442]]}
+];
+
+const imagesAndCoord3 = [
+    // [topLeftX, topLeftY][topRightx, topRighty][botRightx, botRightY][botLeftX, botLeftY]
+    {canvasName: 'canvas4_2', coords: [[485, 334], [728, 316], [728, 902], [485, 869]]}
+];
+
+
 
 
 //Avoiding to input access token every time while testing
@@ -77,6 +78,7 @@ function apiRequest(endpoint) {
 
 
 // imageUrl is the 'apiResponse.images[nodeId]' in the callFigmaAndDrawMockups function
+
 // iPhone
 function addImageToCanvas(imageUrl) {
     stopProgress();
@@ -250,7 +252,7 @@ const iphone8Id = getNodeId(iphone8.value);
             // Adding Figma Frame to Canvas
            addImageToCanvas(apiResponse.images[iphonexId]);
 
-           viewMockups.push(document.getElementById('row5'));
+           viewMockups.push(document.getElementById('row3'));
            visibleImages(); 
         });
     }
@@ -277,7 +279,7 @@ const iphone8Id = getNodeId(iphone8.value);
             // Adding Figma Frame to Canvas
            addImageToCanvas3(apiResponse.images[iphone8Id]);
 
-           viewMockups.push(document.getElementById('row6'));
+           viewMockups.push(document.getElementById('row4'));
            visibleImages(); 
         });
     }

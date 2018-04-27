@@ -6,11 +6,11 @@ saveBtn.addEventListener("mousedown", createImage);
 var saveBtnTwo = document.getElementById('savebtntwo');
 saveBtnTwo.addEventListener("mousedown", createImageTwo);
 
-var saveBtnFive = document.getElementById('savebtnfive');
-saveBtnFive.addEventListener("mousedown", createImageFive);
+var saveBtnThree = document.getElementById('savebtnthree');
+saveBtnThree.addEventListener("mousedown", createImageThree);
 
-var saveBtnsix = document.getElementById('savebtnsix');
-saveBtnsix.addEventListener("mousedown", createImageSix);
+var saveBtnFour = document.getElementById('savebtnfour');
+saveBtnFour.addEventListener("mousedown", createImageFour);
 
 
 // Create Image 1
@@ -49,9 +49,9 @@ function createImageTwo() {
 
 
 // Create Image 5
-function createImageFive() {
+function createImageThree() {
     // This is the background image
-	const image1 = document.getElementById("canvas5_1");
+	const image1 = document.getElementById("canvas3_1");
 
     const data1 = image1.src;
     // data2 = canvas image
@@ -68,12 +68,12 @@ function createImageFive() {
 			downloadURI(b64, "test.png");
 		});
 
-		const row5 = document.getElementById('row5').classList.add('hidden');
+		const row3 = document.getElementById('row3').classList.add('hidden');
 }
 
 // Create Image 6
-function createImageSix() {
-	const image1 = document.getElementById("canvas6_1");
+function createImageFour() {
+	const image1 = document.getElementById("canvas4_1");
 
 	const data1 = image1.src;
 	const data2 = localStorage.getItem("savedImageData3");
@@ -83,7 +83,7 @@ function createImageSix() {
 			downloadURI(b64, "test.png");
 		});
 
-		const row6 = document.getElementById('row6').classList.add('hidden');
+		const row4 = document.getElementById('row4').classList.add('hidden');
 }
 
 
