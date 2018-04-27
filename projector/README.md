@@ -23,3 +23,9 @@ for an app you are working on in Figma.
 4. Input the frame url on `index.html` and click render.
 
 You should see your frame projected into each image on the page.
+
+
+This project is forked from Figma, https://github.com/figma/figma-api-demo
+by Marte Mettenes.
+
+In this project, you can render Figma frames onto images, merge them as one image and right-click to download. 

@@ -72,9 +72,11 @@ function apiRequest(endpoint) {
 }
 
 //Adding Figma Frame as image
+// TODO: Merge duplicate code below , only one function is needed
+
+
+
 // imageUrl is the 'apiResponse.images[nodeId]' in the callFigmaAndDrawMockups function
-
-
 // iPhone
 function addImageToCanvas(imageUrl) {
     stopProgress();
@@ -221,6 +223,9 @@ const iphone8Id = getNodeId(iphone8.value);
     //        // Images is visible when the frame is added to canvas
     //        visibleImages(); 
     //     });
+
+
+// TODO: Merge duplicate Code 
 
     // If Galaxy S8 is checked
     if (galaxys.checked == true){
