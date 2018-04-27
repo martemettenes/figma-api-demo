@@ -13,16 +13,6 @@ var saveBtnsix = document.getElementById('savebtnsix');
 saveBtnsix.addEventListener("mousedown", createImageSix);
 
 
-// function toImage(){
-// 	const data = localStorage.getItem("savedImageData");    
-// 	var canvas = document.getElementById("canvas1_2");
-// 	var image = document.getElementById("canvas1_1");
-//     // document.getElementById("canvas1_1").src = canvas.toDataURL();
-//     Canvas2Image.saveAsJPEG(data, image.width, image.height);
-// }
-
-
-
 // Create Image 1
 function createImage() {
 	const image1 = document.getElementById("canvas1_1");

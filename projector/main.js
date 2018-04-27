@@ -231,6 +231,7 @@ const iphone8Id = getNodeId(iphone8.value);
             // Adding Figma Frame to Canvas
            addImageToCanvas2(apiResponse.images[galaxyId]);
 
+           viewMockups.push(document.getElementById('row2'));
            visibleImages(); 
         });
     }
@@ -244,6 +245,7 @@ const iphone8Id = getNodeId(iphone8.value);
             // Adding Figma Frame to Canvas
            addImageToCanvas(apiResponse.images[iphonexId]);
 
+           viewMockups.push(document.getElementById('row5'));
            visibleImages(); 
         });
     }
@@ -257,6 +259,7 @@ const iphone8Id = getNodeId(iphone8.value);
             // Adding Figma Frame to Canvas
            addImageToCanvas4(apiResponse.images[macId]);
 
+           viewMockups.push(document.getElementById('row1'));
            visibleImages(); 
         });
     }
@@ -269,6 +272,7 @@ const iphone8Id = getNodeId(iphone8.value);
             // Adding Figma Frame to Canvas
            addImageToCanvas3(apiResponse.images[iphone8Id]);
 
+           viewMockups.push(document.getElementById('row6'));
            visibleImages(); 
         });
     }
@@ -280,6 +284,7 @@ const iphone8Id = getNodeId(iphone8.value);
 
 }
 
+const viewMockups = [];
 
 ////////////////////////////////
 // Form Styling and Functions //
@@ -294,22 +299,29 @@ const renderBtn = document.getElementById('render');
 const newMockup = document.getElementById('newmockup');
 const mockupForm = document.getElementById('newmockupform');
 const renderForm = document.getElementById('renderform');
+const mockupsBox = document.getElementById('mockups');
 
 // Show Images
 function visibleImages(){
-    document.getElementById('mockups').classList.remove('hidden');
+    mockupsBox.classList.remove('hidden');
+    for (var i = 0; i < viewMockups.length; i++){
+        viewMockups[i].classList.remove('hidden');
+        console.log(viewMockups);
+    }
 }
 
 newMockup.addEventListener("mousedown", function() {
     mockupForm.classList.remove('hidden');
-    newMockup.classList.toggle('active');
-    renderBtn.classList.toggle('active');
+    newMockup.classList.add('active');
+    renderBtn.classList.remove('active');
     renderForm.classList.add('hidden');
+    mockupsBox.classList.add('hidden');
+
 });
 
 renderBtn.addEventListener("mousedown", function() {
     renderForm.classList.remove('hidden');
-    newMockup.classList.toggle('active');
-    renderBtn.classList.toggle('active');
+    newMockup.classList.remove('active');
+    renderBtn.classList.add('active');
     mockupForm.classList.add('hidden');
 });

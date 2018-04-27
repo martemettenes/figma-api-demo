@@ -49,7 +49,7 @@ form {
 
 .row {
     position: relative;
-    margin: 20px auto;
+    margin: 100px auto;
     width: 1024px;
     margin-bottom: 50px;
 }
@@ -95,6 +95,7 @@ input:focus::-webkit-input-placeholder{
 .input {
     margin: 40px 0 100px;
 }
+
 
 select {
     width: 100px;
@@ -163,7 +164,7 @@ img, canvas {
 .width {
     display: block;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 40px;
     min-width: 50%;
 }
 
@@ -173,12 +174,19 @@ img, canvas {
     margin-right: 20px;
 }
 
+.upload {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
 .input-expl{
     margin-top: 50px;
 }
 
 .subtitle {
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
 .logo {
